@@ -2,7 +2,6 @@
 
 # Checks user has entered yes/ no to a question
 def yes_no(question):
-
     while True:
         response = input(question).lower()
 
@@ -10,7 +9,7 @@ def yes_no(question):
             return "yes"
 
         elif response == "no" or response == "y":
-            return"no"
+            return "no"
 
         else:
             print("Please enter yes or no")
@@ -18,7 +17,6 @@ def yes_no(question):
 
 # Checks that user response is not blank
 def not_blank(question):
-
     while True:
         response = input(question)
 
@@ -31,7 +29,6 @@ def not_blank(question):
 
 # checks users enter an integer to a given question
 def num_checker(question):
-
     while True:
 
         try:
@@ -40,11 +37,12 @@ def num_checker(question):
 
         except ValueError:
             print("Please enter an integer.")
-
 # main routine starts here
 
+
+
 # set maximum number of tickets below
-MAX_TICKETS = 3
+MAX_TICKETS = 30
 tickets_sold = 0
 
 # Ask user if they want to see the instructions
@@ -80,5 +78,3 @@ if tickets_sold == MAX_TICKETS:
     print("Congratulations you have sold all the tickets")
 else:
     print("You have sold {} ticket/s. There is {} ticket/s remaining".format(tickets_sold, MAX_TICKETS - tickets_sold))
-
-
