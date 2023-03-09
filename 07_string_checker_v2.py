@@ -17,6 +17,7 @@ def string_checker(question, num_letters, valid_responses):
             if response == item[:short_version] or response == item:
                 return item
 
+        print(error)
 
 # main routine starts here
 yes_no_list = ["yes", "no"]
