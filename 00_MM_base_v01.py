@@ -1,3 +1,5 @@
+import pandas
+
 # functions go here
 
 # Checks that user response is not blank
@@ -57,13 +59,32 @@ def string_checker(question, num_letters, valid_responses):
             if response == item[:num_letters] or response == item:
                 return item
 
+        print(error)
+
+
+# currency formatting function
+def currency(x):
+    return "${:.2f}".format(x)
+
 
 # set maximum number of tickets below
-MAX_TICKETS = 30
+MAX_TICKETS = 5
 tickets_sold = 0
 
 yes_no_list = ["yes", "no"]
 payment_list = ["cash", "credit"]
+
+# Lists to hold ticket details
+all_names = []
+all_ticket_costs = []
+surcharge = []
+
+# Dictionary used to create data frame ie: column_name:list
+mini_movie_dict = {
+    "Name": all_names,
+    "Ticket Price": all_ticket_costs,
+    "Surcharge": surcharge
+}
 
 # Ask user if they want to see the instructions
 want_instructions = string_checker("Do you want to read the instructions (y/n): ", 1, yes_no_list)
@@ -97,7 +118,19 @@ while tickets_sold < MAX_TICKETS:
     # get payment method
     pay_method = string_checker("choose a payment method (cash / credit): ", 2, payment_list)
 
+    if pay_method == "cash":
+        surcharge = 0
+    else:
+        # calculate 5% surcharge if users are paying with credit card
+        surcharge = ticket_cost * 0.05
+
     tickets_sold += 1
+
+    # add ticket name, cost and surcharge to lists
+    all_names.append(name)
+    all_ticket_costs.append(ticket_cost)
+
+
 
 # Output number of tickets sold
 if tickets_sold == MAX_TICKETS:
