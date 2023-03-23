@@ -1,8 +1,10 @@
 import pandas
 
+
 # functions go here
 
 # Checks that user response is not blank
+
 def not_blank(question):
     while True:
         response = input(question)
@@ -24,12 +26,13 @@ def num_checker(question):
 
         except ValueError:
             print("Please enter an integer.")
+
+
 # main routine starts here
 
 
 # Calculate the ticket price based on the age
 def calc_ticket_price(var_age):
-
     # ticket  is $7.50 for users under 16
     if var_age < 16:
         price = 7.5
@@ -48,7 +51,6 @@ def calc_ticket_price(var_age):
 # checks that users enter a valid response (eg yes / no
 # cash / credit) based on a list of options
 def string_checker(question, num_letters, valid_responses):
-
     error = "Please choose {} or {}".format(valid_responses[0], valid_responses[1])
 
     while True:
@@ -163,7 +165,6 @@ print("----- Ticket Cost / Profit -----")
 # output total ticket sales and profits
 print("Total Ticket Sales: ${:.2f}".format(total))
 print("Total Profit : ${:.2f}".format(profit))
-
 
 # Output number of tickets sold
 if tickets_sold == MAX_TICKETS:
